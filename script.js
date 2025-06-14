@@ -1,36 +1,35 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const backgroundMusic = document.getElementById('backgroundMusic');
-  let isPlaying = false;
+  const audio = document.getElementById('backgroundMusic');
+  let started = false;
 
-  // Sahifaga bir marta bosilganda musiqani boshlash/to'xtatish
-  document.body.addEventListener('click', () => {
-    if (!isPlaying) {
-      backgroundMusic.play();
-      isPlaying = true;
-    } else {
-      backgroundMusic.pause();
-      isPlaying = false;
+  function playAudio() {
+    if (!started) {
+      audio.play().catch(() => { });
+      started = true;
     }
-  }, { once: true }); // Faqat birinchi marta bosilganda ishga tushirish
+  }
 
-  // Keyingi bosishlar uchun tinglovchini qayta qo'shish
-  backgroundMusic.addEventListener('pause', () => {
-    document.body.removeEventListener('click', null);
-    document.body.addEventListener('click', toggleMusic);
-  });
-  backgroundMusic.addEventListener('play', () => {
-    document.body.removeEventListener('click', null);
-    document.body.addEventListener('click', toggleMusic);
-  });
+  document.addEventListener('touchstart', playAudio, { once: true });
 
-  function toggleMusic() {
+  // Ekranga bosilganda musiqani boshqarish
+  document.body.addEventListener('click', () => {
     if (backgroundMusic.paused) {
       backgroundMusic.play();
     } else {
       backgroundMusic.pause();
     }
-  }
+  });
 
+  // Musiqani scroll orqali ishga tushirish
+  window.addEventListener('scroll', function scrollMusicHandler() {
+    if (!musicStarted && window.scrollY > 50) { // 50 pikseldan keyin ishga tushadi
+      backgroundMusic.play().catch(e => console.log("Musiqani ijro etishda xatolik:", e));
+      musicStarted = true;
+      window.removeEventListener('scroll', scrollMusicHandler);
+    }
+  });
+
+  // Dastlabki yuklanish animatsiyalari (birinchi bo'lim)
   setTimeout(() => {
     document.querySelector('.couple-anim').classList.add('show');
   }, 200);
@@ -60,9 +59,9 @@ window.addEventListener('DOMContentLoaded', () => {
             });
             const ogNames = entry.target.querySelectorAll('.og-name, .og-name-and');
             setTimeout(() => {
-                ogNames.forEach(nameEl => {
-                    nameEl.classList.add('show');
-                });
+              ogNames.forEach(nameEl => {
+                nameEl.classList.add('show');
+              });
             }, baseDelay + (elements.length * 100));
           }
           else if (entry.target.classList.contains('section-4')) {
@@ -77,56 +76,56 @@ window.addEventListener('DOMContentLoaded', () => {
           else if (entry.target.classList.contains('section-5')) {
             const bezakSection5 = entry.target.querySelector('.bezak-section-5');
             if (bezakSection5) {
-                setTimeout(() => {
-                    bezakSection5.classList.add('show');
-                }, baseDelay);
+              setTimeout(() => {
+                bezakSection5.classList.add('show');
+              }, baseDelay);
             }
             const calendarComponent = entry.target.querySelector('.calendar-component');
             if (calendarComponent) {
-                setTimeout(() => {
-                    calendarComponent.classList.add('show');
-                }, baseDelay + 200);
+              setTimeout(() => {
+                calendarComponent.classList.add('show');
+              }, baseDelay + 200);
             }
           }
           else if (entry.target.classList.contains('central-image-section-5')) {
             setTimeout(() => {
-                entry.target.classList.add('show');
+              entry.target.classList.add('show');
             }, baseDelay);
           }
           else if (entry.target.classList.contains('section-6')) {
             const section6Elements = [
-                entry.target.querySelector('.bezak-section-6'),
-                entry.target.querySelector('.loc-title'),
-                entry.target.querySelector('.loc-address'),
-                entry.target.querySelector('.loc-restoran'),
-                entry.target.querySelector('.loc-miras'),
-                entry.target.querySelector('.restaurant-image'),
-                entry.target.querySelector('.map-button')
+              entry.target.querySelector('.bezak-section-6'),
+              entry.target.querySelector('.loc-title'),
+              entry.target.querySelector('.loc-address'),
+              entry.target.querySelector('.loc-restoran'),
+              entry.target.querySelector('.loc-miras'),
+              entry.target.querySelector('.restaurant-image'),
+              entry.target.querySelector('.map-button')
             ].filter(Boolean);
 
             section6Elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.classList.add('show');
-                }, baseDelay + (index * 150));
+              setTimeout(() => {
+                el.classList.add('show');
+              }, baseDelay + (index * 150));
             });
           }
           else if (entry.target.classList.contains('section-7')) {
             const section7Elements = [
-                entry.target.querySelector('.start-title'),
-                entry.target.querySelector('.start-time'),
-                entry.target.querySelector('.couple-section-7-image'),
-                entry.target.querySelector('.bezak-section-7')
+              entry.target.querySelector('.start-title'),
+              entry.target.querySelector('.start-time'),
+              entry.target.querySelector('.couple-section-7-image'),
+              entry.target.querySelector('.bezak-section-7')
             ].filter(Boolean);
 
             section7Elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.classList.add('show');
-                }, baseDelay + (index * 150));
+              setTimeout(() => {
+                el.classList.add('show');
+              }, baseDelay + (index * 150));
             });
           }
           else {
             setTimeout(() => {
-                entry.target.classList.add('show');
+              entry.target.classList.add('show');
             }, baseDelay);
           }
           observer.unobserve(entry.target);
@@ -144,7 +143,7 @@ window.addEventListener('DOMContentLoaded', () => {
   function startCountdown() {
     const countdownDate = new Date("2025-07-04T14:00:00").getTime();
 
-    const x = setInterval(function() {
+    const x = setInterval(function () {
       const now = new Date().getTime();
       const distance = countdownDate - now;
 
