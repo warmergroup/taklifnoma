@@ -1,0 +1,117 @@
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+.font-great-vibes {
+  font-family: 'Great Vibes', cursive;
+}
+
+/* Harflar orasidagi joyni kamaytirish */
+.og-text {
+  line-height: 0.8;
+}
+/* Imzo nomlari orasidagi joyni kamaytirish */
+.og-name {
+  line-height: 1;
+}
+.og-name-and {
+  line-height: 1;
+}
+
+/* Birinchi bo'lim animatsiya delaylari */
+.couple-anim { transition-delay: 0.2s; }
+.bezak-anim { transition-delay: 0.7s; }
+.og-anim-o, .og-anim-and, .og-anim-g { transition-delay: 1s; } /* Harflar birga chiqadi */
+
+/* Barcha bo'limlar uchun umumiy animatsiya */
+.section-2, .section-3, .section-4, .section-5, .section-6, .section-7, .central-image-section-5 {
+  transition: all 0.7s ease-out;
+}
+
+/* Uchinchi bo'lim (Taklif Matni) elementlari uchun */
+.section-3-el {
+  transition: all 0.7s ease-out; /* Barcha animatsiyalar uchun umumiy */
+}
+/* Ismlar (Otabek & Guzal) bir vaqtda chiqishi uchun */
+.og-name, .og-name-and {
+  transition-delay: 0s !important; /* JS tomonidan beriladigan delayni boshqarish */
+}
+
+/* To'rtinchi bo'lim (Taymer) elementlari uchun umumiy animatsiya */
+.countdown-el {
+  transition: all 0.7s ease-out;
+}
+.countdown-el:nth-child(1) { transition-delay: 0s; } /* Kunlar */
+.countdown-el:nth-child(2) { transition-delay: 0.1s; } /* Soatlar */
+.countdown-el:nth-child(3) { transition-delay: 0.3s; } /* Minutlar */
+.countdown-el:nth-child(4) { transition-delay: 0.5s; } /* Soniyalar */
+
+/* Beshinchi bo'lim (Kalendar) elementlari uchun */
+.section-5-el {
+  transition: all 0.7s ease-out; /* Umumiy animatsiya */
+}
+.bezak-section-5 {
+  transition-delay: 0s; /* Elementga beriladigan delay JS da beriladi */
+}
+.calendar-component {
+  transition-delay: 0.5s; /* Elementga beriladigan delay JS da beriladi */
+}
+.central-image-section-5 {
+  transition-delay: 0s; /* Elementga beriladigan delay JS da beriladi */
+}
+
+/* Oltinchi bo'lim (Locatsiya) elementlari uchun */
+.section-6-el {
+  opacity: 0;
+  transition: all 0.7s ease-in-out; /* Umumiy animatsiya */
+}
+.bezak-section-6 {
+  transform: translateX(100%); /* Boshlang'ich holati o'ngdan tashqarida */
+}
+.loc-title {
+  transform: translateX(-100%); /* Boshlang'ich holati chapdan tashqarida */
+}
+.loc-address {
+  transform: translateX(100%); /* Boshlang'ich holati o'ngdan tashqarida */
+}
+.loc-restoran {
+  transform: translateX(-100%); /* Boshlang'ich holati chapdan tashqarida */
+}
+.loc-miras {
+  transform: translateX(100%); /* Boshlang'ich holati o'ngdan tashqarida */
+}
+.restaurant-image {
+  transform: translateY(20px) scale(0.95); /* Pastdan kelib, kattalashadi */
+}
+.map-button {
+  transform: scale(0); /* Karta tugmasi boshida kichik */
+}
+/* Karta tugmasi hover effekti */
+.map-button:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Yettinchi bo'lim (Marosim Boshlanishi) elementlari uchun */
+.section-7-el {
+  opacity: 0;
+  transition: all 0.7s ease-out;
+}
+.bezak-section-7 {
+  transform: translateX(-100%) rotateY(180deg); /* Chapdan kelib, aylanadi */
+}
+.start-title, .start-time {
+  transform: translateY(20px); /* Pastdan yuqoriga */
+}
+.couple-section-7-image {
+  transform: translateY(20px); /* Pastdan yuqoriga */
+}
+
+/* .show klassi animatsiyani faollashtiradi */
+.show {
+  opacity: 1 !important;
+  transform: none !important; /* translate va scale ni reset qiladi */
+  transform: scale(1) !important; /* Faqat scale animatsiyasi uchun */
+}

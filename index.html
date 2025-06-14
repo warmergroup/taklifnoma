@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=390, initial-scale=1.0">
+    <title>Otabek & Guzal</title>
+    <!-- Tailwind PlayCDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display, Montserrat, Great Vibes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#254225]">
+    <div class="relative w-[390px] mx-auto bg-[#f5f7f6] rounded-lg shadow-lg">
+        <!-- Birinchi Bo'lim: Rasm va Matn Overlay -->
+        <div class="relative">
+            <!-- Rasm uzunroq va scroll bo'lganda to'liq ko'rinadi -->
+            <img src="images/couple.jpg" alt="Couple" class="w-full h-[1200px] object-cover opacity-0 translate-y-10 transition-all duration-[1s] ease couple-anim" />
+            <!-- Matn overlaylari: Ular faqat dastlabki 844px (telefon ekran balandligi) ichida ko'rinadi -->
+            <div class="absolute inset-0 h-[844px] overflow-hidden">
+                <!-- Bezak rasmi -->
+                <img src="images/bezak.webp" alt="Bezak" class="absolute top-10 left-0 w-2/3 max-w-[250px] opacity-0 -translate-x-10 transition-all duration-[1.2s] ease bezak-anim z-10" />
+                <!-- O & G -->
+                <div class="flex flex-col items-center justify-center mt-10 gap-5 relative z-20">
+                    <span class="block text-[100px] font-playfair opacity-0 -translate-y-10 transition-all duration-[1.5s] ease og-anim-o og-text">O</span>
+                    <span class="block text-[50px] font-playfair font-bold opacity-0 transition-all duration-[1.5s] ease og-anim-and og-text">&</span>
+                    <span class="block text-[100px] font-playfair opacity-0 translate-y-10 transition-all duration-[1.5s] ease og-anim-g og-text">G</span>
+                    <span class="block text-[16px] mt-2 text-gray-700">05.05.2025</span>
+                </div>
+                <!-- Pastda matn -->
+                <div class="absolute bottom-8 left-0 w-full text-center text-gray-800 text-sm tracking-widest z-30">ЛИСТАЙТЕ ВНИЗ</div>
+            </div>
+        </div>
+        <!-- Uchinchi Bo'lim: Taklif Matni (section-3) - Bu qismga animatsiyalar qo'shiladi -->
+        <div class="w-full bg-[#f5f7f6] py-12 px-6 text-center relative z-40 section-3">
+            <!-- "ДОРОГОЙ ГОСТЬ" matni -->
+            <h3 class="font-montserrat text-xl font-semibold text-gray-800 mb-6 tracking-wide leading-relaxed opacity-0 translate-y-10 transition-all duration-700 ease-out section-3-el">
+                ДОРОГОЙ ГОСТЬ
+            </h3>
+            <!-- Uzun matnli qism -->
+            <p class="font-montserrat text-sm text-gray-700 leading-loose mb-8 opacity-0 scale-0 transition-all duration-700 ease-out section-3-el">
+                ПРИГЛАШАЕМ ВАС РАЗДЕЛИТЬ<br>
+                РАДОСТЬ ЭТОГО ОСОБЕННОГО<br>
+                ДЛЯ НАС СОБЫТИЯ И СТАТЬ<br>
+                ЧАСТЬЮ НАЧАЛА НАШЕЙ<br>
+                СЕМЕЙНОЙ ИСТОРИИ.
+            </p>
+            <!-- "С УВАЖЕНИЕМ" yozuvi -->
+            <p class="font-montserrat text-sm text-gray-700 mb-8 opacity-0 scale-0 transition-all duration-700 ease-out section-3-el">
+                С УВАЖЕНИЕМ
+            </p>
+            <!-- "Otabek" va "Go'zal" ismlari -->
+            <div class="flex justify-center items-center gap-x-2">
+                <p class="font-great-vibes text-4xl text-gray-900 leading-none opacity-0 -translate-x-full transition-all duration-700 ease-out section-3-el og-name">
+                    Otabek
+                </p>
+                <span class="font-great-vibes text-4xl text-gray-900 leading-none opacity-0 transition-all duration-700 ease-out section-3-el og-name-and">&</span>
+                <p class="font-great-vibes text-4xl text-gray-900 leading-none opacity-0 translate-x-full transition-all duration-700 ease-out section-3-el og-name">
+                    Guzal
+                </p>
+            </div>
+        </div>
+        
+        <!-- Yangi To'rtinchi Bo'lim: Teskari Sanoq Taymeri (section-4) -->
+        <div class="py-12 px-6 text-center relative mt-10 z-40 section-4 rounded-md">
+            <h3 class="font-montserrat text-xl font-semibold text-gray-800 mb-8">Marosimga Qoldi:</h3>
+            <div id="countdown" class="flex justify-center items-start gap-x-4">
+                <!-- Kunlar bloki -->
+                <div class="flex flex-col items-center opacity-0 translate-y-10 transition-all duration-700 ease-out countdown-el">
+                    <span id="days" class="font-montserrat text-4xl font-bold text-gray-800">000</span>
+                    <span class="font-montserrat text-sm text-gray-600">ДНЕЙ</span>
+                </div>
+                <!-- Soatlar bloki -->
+                <div class="flex flex-col items-center opacity-0 translate-y-10 transition-all duration-700 ease-out countdown-el">
+                    <span id="hours" class="font-montserrat text-4xl font-bold text-gray-800">00</span>
+                    <span class="font-montserrat text-sm text-gray-600">ЧАСОВ</span>
+                </div>
+                <!-- Minutlar bloki -->
+                <div class="flex flex-col items-center opacity-0 translate-y-10 transition-all duration-700 ease-out countdown-el">
+                    <span id="minutes" class="font-montserrat text-4xl font-bold text-gray-800">00</span>
+                    <span class="font-montserrat text-sm text-gray-600">МИНУТ</span>
+                </div>
+                <!-- Soniyalar bloki -->
+                <div class="flex flex-col items-center opacity-0 translate-y-10 transition-all duration-700 ease-out countdown-el">
+                    <span id="seconds" class="font-montserrat text-4xl font-bold text-gray-800">00</span>
+                    <span class="font-montserrat text-sm text-gray-600">СЕКУНД</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Yangi Beshinchi Bo'lim: Kalendar va Bezak (section-5) -->
+        <div class="w-full bg-[#f5f7f6] py-12 px-6 relative z-40 section-5 overflow-hidden mb-16"> <!-- mb-16 for image space -->
+            <!-- Bezak rasmi (chapdan kirib keladi) -->
+            <img src="images/bezak.webp" alt="Decorative" class="absolute top-0 left-0 w-1/3 opacity-0 -translate-x-full transition-all duration-700 ease-in-out section-5-el bezak-section-5" />
+
+            <!-- Calendar komponenti (pastdan ko'tarilib keladi) -->
+            <div class="calendar-component opacity-0 translate-y-10 transition-all duration-700 ease-out section-5-el text-center">
+                <p class="font-great-vibes text-4xl text-gray-800 mb-4">Май</p>
+                <div class="grid grid-cols-7 gap-2 text-center font-montserrat text-sm text-gray-700 max-w-[300px] mx-auto">
+                    <span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
+                    <span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span>
+                    <span class="highlight-date flex items-center justify-center w-8 h-8 mx-auto rounded-full bg-green-200 text-gray-900 font-bold border border-green-500">4</span><span >5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                    <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+                    <span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+                    <span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Markaziy rasm (section-5 va keyingi sectionni ustiga chiqib turadi) -->
+        <img src="images/couple.jpg" alt="Central Couple"
+            class="w-full max-w-[300px] h-[500px] object-cover mx-auto -mt-20 relative z-50 opacity-0 scale-95 translate-y-2 transition-all duration-700 ease-out central-image-section-5 rounded-lg" />
+
+        <!-- Yangi Oltinchi Bo'lim: Locatsiya va Restoran rasmi (section-6) -->
+        <div class="w-full flex flex-col items-center bg-white py-12 px-6 relative z-40 section-6 -mt-20 pt-20">
+            <!-- Bezak rasmi (o'ngdan kirib keladi va aylanadi) -->
+            <img src="images/bezak.webp" alt="Decorative" class="absolute top-0 right-0 w-1/3 rotate-y-180 opacity-0 translate-x-full transition-all duration-700 ease-in-out section-6-el bezak-section-6" />
+
+            <div class="text-center mb-8">
+                <!-- Locatsiya sarlavhasi -->
+                <p class="font-great-vibes text-4xl text-gray-800 mb-4 opacity-0 -translate-x-full transition-all duration-700 ease-in-out section-6-el loc-title">
+                    Локация
+                </p>
+                <!-- Manzil matni -->
+                <p class="font-montserrat text-lg text-gray-700 leading-relaxed mb-4 opacity-0 translate-x-full transition-all duration-700 ease-in-out section-6-el loc-address">
+                    ТАШКЕНТ, УЛИЦА<br>
+                    НИЁЗБЕК 3 ПРОЕЗД, ДОМ
+                </p>
+                <!-- "Restoran" so'zi -->
+                <p class="font-montserrat text-base text-gray-600 mb-2 opacity-0 -translate-x-full transition-all duration-700 ease-in-out section-6-el loc-restoran">
+                    РЕСТОРАН
+                </p>
+                <!-- Restoran nomi -->
+                <p class="font-great-vibes text-5xl text-gray-900 opacity-0 translate-x-full transition-all duration-700 ease-in-out section-6-el loc-miras">
+                    "Miras"
+                </p>
+            </div>
+
+            <!-- Restoran rasmi -->
+            <img src="images/restoran.webp" alt="Restaurant Interior" class="w-full h-auto max-h-[400px] object-cover rounded-lg shadow-lg mb-8 opacity-0 translate-y-10 scale-95 transition-all duration-800 ease-in-out section-6-el restaurant-image" />
+
+            <!-- "Karta" tugmasi -->
+            <a href="https://yandex.uz/maps/10334/samarkand/?ll=66.985187%2C39.684351&mode=poi&poi%5Bpoint%5D=66.985228%2C39.684228&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D240688486180&z=17" target="_blank"
+               class="inline-block mx-auto py-3 px-8 bg-black text-white font-montserrat text-lg rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl opacity-0 scale-0 transition-all duration-700 ease-out section-6-el map-button">
+                КАРТА
+            </a>
+        </div>
+
+        <!-- Yangi Yettinchi Bo'lim: Marosim Boshlanishi va Rasm (section-7) -->
+        <div class="w-full bg-[#2f5530] py-20 px-6 relative z-30 section-7 overflow-hidden -mt-20 pt-20">
+            <!-- Bezak rasmi (chapdan kirib keladi va aylanadi) -->
+            <img src="images/bezak.webp" alt="Decorative" class="absolute bottom-0 left-0 w-1/3 rotate-y-180 opacity-0 -translate-x-full transition-all duration-700 ease-in-out section-7-el bezak-section-7" />
+
+            <div class="text-center mb-8 relative z-10">
+                <!-- "Начало торжества" matni -->
+                <p class="mt-10 font-great-vibes text-4xl text-white mb-4 opacity-0 translate-y-10 transition-all duration-700 ease-out section-7-el start-title">
+                    Начало торжества
+                </p>
+                <!-- "18:00" matni -->
+                <p class="font-montserrat text-4xl font-bold text-white opacity-0 translate-y-10 transition-all duration-700 ease-out section-7-el start-time">
+                    17:00
+                </p>
+            </div>
+
+            <!-- Couple rasmi (markazda) -->
+            <div class="relative w-full max-w-[350px] h-[450px] mx-auto rounded-lg shadow-lg overflow-hidden relative z-10 opacity-0 translate-y-10 transition-all duration-800 ease-out section-7-el couple-section-7-image">
+                <img src="images/couple_walking.webp" alt="Couple Walking" class="w-full h-full object-cover" />
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+    <audio id="backgroundMusic" src="./public/music.mp3" loop preload="auto"></audio>
+</body>
+</html>
